@@ -7,7 +7,7 @@ const host = process.env.DB_HOST;
 const database = process.env.DB_DATABASE;
 const port = process.env.DB_PORT;
 
-const sequelize = new Sequelize("vigafood", "postgres", "supersaiyanman", {
+const sequelize = new Sequelize(database, user, password, {
   dialect: "postgres",
 });
 
