@@ -13,6 +13,7 @@ const port = process.env.DB_PORT;
 
 const sequelize = new Sequelize(database, user, password, {
   dialect: "postgres",
+  host: process.env.DB_HOST,
 });
 
 const testDbConnection = async () => {
