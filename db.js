@@ -37,6 +37,9 @@ const pool = new Pool({
   database: database,
   password: password,
   port: port,
+  ssl: {
+    rejectUnauthorized: false,
+  },
 });
 
 testDbConnection();
