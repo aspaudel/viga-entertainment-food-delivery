@@ -1,3 +1,6 @@
+if (process.env.NODE_ENV != "production") {
+  require("dotenv").config();
+}
 /**
  * @swagger
  * /:
@@ -50,7 +53,6 @@ const swaggerUi = require("swagger-ui-express");
 const swaggerSpec = require("./swaggerConfig");
 
 const app = express();
-const PORT = 3000;
 
 app.use(express.json());
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
@@ -63,6 +65,6 @@ app.get("/seedData", controller.seedData);
 
 app.post("/calculatePrice", controller.calculatePrice);
 
-app.listen(PORT, () => {
-  console.log(`Listening on port ${PORT}`);
+app.listen(process.env.PORT, () => {
+  console.log(`Listening on port ${process.env.PORT}`);
 });
